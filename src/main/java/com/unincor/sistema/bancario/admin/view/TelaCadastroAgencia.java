@@ -21,8 +21,13 @@ public class TelaCadastroAgencia extends javax.swing.JDialog {
     public TelaCadastroAgencia(java.awt.Frame parent, boolean modal) {   
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(parent);
     }
-
+    public TelaCadastroAgencia(java.awt.Dialog parent, boolean modal) {   
+        super(parent, modal);
+        initComponents();
+        setLocationRelativeTo(parent);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
