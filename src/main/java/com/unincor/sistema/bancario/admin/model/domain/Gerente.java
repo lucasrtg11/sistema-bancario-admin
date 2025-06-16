@@ -25,6 +25,10 @@ public class Gerente extends Pessoa{
         this.agencia = agencia;
     }
 
+    public Gerente() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public Long getIdGerente() {
         return idGerente;
     }

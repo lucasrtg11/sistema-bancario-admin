@@ -15,18 +15,21 @@ import javax.swing.JOptionPane;
  */
 public class TelaCadastroAgencia extends javax.swing.JDialog {
     private final AgenciaService agenciaService = new AgenciaService();
+    private ChamadaRetorno chamadaRetorno;
     /**
      * Creates new form TelaCadastroAgencia
      */
-    public TelaCadastroAgencia(java.awt.Frame parent, boolean modal) {   
+    public TelaCadastroAgencia(java.awt.Frame parent, boolean modal) { 
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        
     }
-    public TelaCadastroAgencia(java.awt.Dialog parent, boolean modal) {   
+    public TelaCadastroAgencia(java.awt.Dialog parent, boolean modal, ChamadaRetorno chamadaRetorno) {   
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        this.chamadaRetorno = chamadaRetorno;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -173,6 +176,9 @@ public class TelaCadastroAgencia extends javax.swing.JDialog {
         try {
             Agencia agencia = construirAgenciaView();
             agenciaService.salvarAgencia(agencia);
+            JOptionPane.showMessageDialog(this, "Salvo com sucesso");
+            chamadaRetorno.execute();
+            dispose();
         } catch (CadastrosException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
